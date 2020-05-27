@@ -2,12 +2,10 @@ package com.navneet.library.controller;
 
 import com.navneet.library.model.Book;
 import com.navneet.library.repository.BookRepository;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class BookController {
@@ -29,5 +27,12 @@ public class BookController {
     {
         bookRepository.save(book);
         return true;
+    }
+    
+    @RequestMapping("/books/{id}")
+    public Book findABook(@PathVariable(value = "id") int id)
+    {
+        Optional<Book> book = bookRepository.findById(id);
+        return book.get();
     }
 }
