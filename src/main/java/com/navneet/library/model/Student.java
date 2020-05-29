@@ -1,7 +1,6 @@
 package com.navneet.library.model;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "Students")
@@ -13,8 +12,6 @@ public class Student {
     private String address;
     private double fine;
 
-    @OneToMany
-    private List<Book> books;
 
     public int getId() {
         return id;
@@ -56,11 +53,4 @@ public class Student {
         this.fine = fine;
     }
 
-    public List<Book> getBooks() {
-        return books;
-    }
-
-    public void setBooks(List<Book> books) {
-        this.books = books;
-    }
 }
