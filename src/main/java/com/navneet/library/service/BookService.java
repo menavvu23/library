@@ -34,4 +34,8 @@ public class BookService {
     public void deleteById(int id) {
         bookRepository.deleteById(id);
     }
+
+    public List<Book> findByPublisher(String publisher) {
+        return bookRepository.findByPublisher(publisher);
+    }
 }

@@ -1,7 +1,7 @@
 package com.navneet.library.model;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.List;
 
 @Entity
 @Table(name = "Students")
@@ -12,7 +12,9 @@ public class Student {
     private String department;
     private String address;
     private double fine;
-    private Set<Book> books;
+
+    @OneToMany
+    private List<Book> books;
 
     public int getId() {
         return id;
@@ -54,11 +56,11 @@ public class Student {
         this.fine = fine;
     }
 
-    public Set<Book> getBooks() {
+    public List<Book> getBooks() {
         return books;
     }
 
-    public void setBooks(Set<Book> books) {
+    public void setBooks(List<Book> books) {
         this.books = books;
     }
 }

@@ -28,12 +28,14 @@ public class BookController {
     }
 
     @RequestMapping(method = RequestMethod.POST,value = "")
+    @ResponseStatus(HttpStatus.CREATED)
     public void addBook(@RequestBody Book book )
     {
         bookService.addBook(book);
     }
 
     @RequestMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
     public Optional<Book> findById(@PathVariable(value = "id") int id)
     {
         return bookService.findById(id);
@@ -43,5 +45,12 @@ public class BookController {
     public void deleteById(@PathVariable(value = "id") int id)
     {
         bookService.deleteById(id);
+    }
+
+    @RequestMapping("/searchbypublisher")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Book> findByPublisher(@RequestParam(value = "publisher") String publisher)
+    {
+        return bookService.findByPublisher(publisher);
     }
 }

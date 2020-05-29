@@ -15,6 +15,15 @@ public class Book {
     private boolean isAvailable;
     private double price;
     private int copies;
+    private String publisher;
+
+    public String getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
+    }
 
     public int getId() {
         return id;
