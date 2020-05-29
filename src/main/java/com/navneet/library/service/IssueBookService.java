@@ -40,7 +40,7 @@ public class IssueBookService {
                 books.add(restTemplate.getForObject(uri, Book.class));
             }
         }
-        return null;
+        return books;
     }
 
     public Student getStudentForBook(int id) {
