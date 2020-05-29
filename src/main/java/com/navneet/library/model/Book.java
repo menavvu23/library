@@ -3,23 +3,18 @@ package com.navneet.library.model;
 import javax.persistence.*;
 
 @Entity
+@Table(name="Book_data")
 public class Book {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-
-    @Column(name ="Title")
     private String title;
-
-    @Column(name ="author")
-    private String author;
-
-    @Column(name = "subject")
-    private String subject;
-
-    @Column(name = "isbn")
     private String isbn;
+    private String author;
+    private String releaseYear;
+    private boolean isAvailable;
+    private double price;
+    private int copies;
 
     public int getId() {
         return id;
@@ -37,6 +32,14 @@ public class Book {
         this.title = title;
     }
 
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
+
     public String getAuthor() {
         return author;
     }
@@ -45,19 +48,35 @@ public class Book {
         this.author = author;
     }
 
-    public String getSubject() {
-        return subject;
+    public String getReleaseYear() {
+        return releaseYear;
     }
 
-    public void setSubject(String subject) {
-        this.subject = subject;
+    public void setReleaseYear(String releaseYear) {
+        this.releaseYear = releaseYear;
     }
 
-    public String getIsbn() {
-        return isbn;
+    public boolean isAvailable() {
+        return isAvailable;
     }
 
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
+    public void setAvailable(boolean available) {
+        isAvailable = available;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public int getCopies() {
+        return copies;
+    }
+
+    public void setCopies(int copies) {
+        this.copies = copies;
     }
 }
