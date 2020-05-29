@@ -35,20 +35,21 @@ public class BookController {
     }
 
     @RequestMapping("/{id}")
-    @ResponseStatus(HttpStatus.OK)
+    @ResponseStatus(HttpStatus.FOUND)
     public Optional<Book> findById(@PathVariable(value = "id") int id)
     {
         return bookService.findById(id);
     }
 
     @RequestMapping(method = RequestMethod.DELETE,value = "/{id}")
+    @ResponseStatus(HttpStatus.GONE)
     public void deleteById(@PathVariable(value = "id") int id)
     {
         bookService.deleteById(id);
     }
 
     @RequestMapping("/searchbypublisher")
-    @ResponseStatus(HttpStatus.OK)
+    @ResponseStatus(HttpStatus.FOUND)
     public List<Book> findByPublisher(@RequestParam(value = "publisher") String publisher)
     {
         return bookService.findByPublisher(publisher);

@@ -4,7 +4,6 @@ import com.navneet.library.model.Student;
 import com.navneet.library.repository.StudentRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,18 +24,7 @@ public class StudentService {
         return studentRepository.findById(id);
     }
 
-    public List<Student> defaulters() {
-       List<Student> list = studentRepository.findAll();
-       ArrayList<Student> arrayList = new ArrayList<>();
-        for (Student s:list)
-        {
-            if (s.getFine()>0)
-            {
-                arrayList.add(s);
-            }
-        }
-        return arrayList;
-    }
+
 
     public void addStudent(Student student) {
         studentRepository.save(student);

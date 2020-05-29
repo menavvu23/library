@@ -1,5 +1,7 @@
 package com.navneet.library.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -7,11 +9,13 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "Issued_books")
 public class IssuedBooks {
+
     @Id
     private int id;
-    private int studentid;
-    private int bookid;
-    private int isIssued;
+    @JsonProperty
+    private boolean issued;
+    private int bookId;
+    private int studentId;
 
     public int getId() {
         return id;
@@ -21,27 +25,27 @@ public class IssuedBooks {
         this.id = id;
     }
 
-    public int getStudentid() {
-        return studentid;
+    public boolean isIssued() {
+        return issued;
     }
 
-    public void setStudentid(int studentid) {
-        this.studentid = studentid;
+    public void setIssued(boolean issued) {
+        this.issued = issued;
     }
 
-    public int getBookid() {
-        return bookid;
+    public int getBookId() {
+        return bookId;
     }
 
-    public void setBookid(int bookid) {
-        this.bookid = bookid;
+    public void setBookId(int bookId) {
+        this.bookId = bookId;
     }
 
-    public int getIsIssued() {
-        return isIssued;
+    public int getStudentId() {
+        return studentId;
     }
 
-    public void setIsIssued(int isIssued) {
-        this.isIssued = isIssued;
+    public void setStudentId(int studenIid) {
+        this.studentId = studenIid;
     }
 }

@@ -11,10 +11,7 @@ public class Book {
     private String title;
     private String isbn;
     private String author;
-    private String releaseYear;
-    private boolean isAvailable;
     private double price;
-    private int copies;
     private String publisher;
 
     public String getPublisher() {
@@ -57,21 +54,6 @@ public class Book {
         this.author = author;
     }
 
-    public String getReleaseYear() {
-        return releaseYear;
-    }
-
-    public void setReleaseYear(String releaseYear) {
-        this.releaseYear = releaseYear;
-    }
-
-    public boolean isAvailable() {
-        return isAvailable;
-    }
-
-    public void setAvailable(boolean available) {
-        isAvailable = available;
-    }
 
     public double getPrice() {
         return price;
@@ -81,11 +63,4 @@ public class Book {
         this.price = price;
     }
 
-    public int getCopies() {
-        return copies;
-    }
-
-    public void setCopies(int copies) {
-        this.copies = copies;
-    }
 }

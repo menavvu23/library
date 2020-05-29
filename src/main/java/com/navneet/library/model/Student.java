@@ -10,7 +10,6 @@ public class Student {
     private String name;
     private String department;
     private String address;
-    private double fine;
 
 
     public int getId() {
@@ -45,12 +44,5 @@ public class Student {
         this.address = address;
     }
 
-    public double getFine() {
-        return fine;
-    }
-
-    public void setFine(double fine) {
-        this.fine = fine;
-    }
 
 }

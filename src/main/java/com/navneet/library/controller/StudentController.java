@@ -2,19 +2,20 @@ package com.navneet.library.controller;
 
 import com.navneet.library.model.Student;
 import com.navneet.library.service.StudentService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
-@Controller
+@RestController
 @RequestMapping("/students")
 public class StudentController {
 
     StudentService studentService;
 
+    @Autowired
     public StudentController(StudentService studentService) {
         this.studentService = studentService;
     }
@@ -30,11 +31,6 @@ public class StudentController {
         return studentService.getById(id);
     }
 
-    @RequestMapping("/defaulters")
-    public List<Student> defaulters()
-    {
-        return studentService.defaulters();
-    }
 
     @RequestMapping(method = RequestMethod.POST,value = "")
     @ResponseStatus(HttpStatus.CREATED)
@@ -42,4 +38,6 @@ public class StudentController {
     {
         studentService.addStudent(student);
     }
+
+
 }
