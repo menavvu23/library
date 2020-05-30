@@ -6,7 +6,7 @@ import javax.persistence.*;
 @Table(name="Book_data")
 public class Book {
 
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String title;
     private String isbn;
