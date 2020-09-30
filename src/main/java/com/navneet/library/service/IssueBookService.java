@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@Lombok
 public class IssueBookService {
 
     IssueBookRepository issueBookRepository;
