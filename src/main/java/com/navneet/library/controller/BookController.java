@@ -11,7 +11,6 @@ import java.util.Optional;
 
 
 @RestController
-@RequestMapping("/books")
 public class BookController {
 
     BookService bookService;
@@ -21,34 +20,34 @@ public class BookController {
         this.bookService = bookService;
     }
 
-    @RequestMapping("")
+    @RequestMapping("/books")
     @ResponseStatus(HttpStatus.OK)
     public List<Book> getAllBooks(){
         return bookService.getAllBooks();
     }
 
-    @RequestMapping(method = RequestMethod.POST,value = "")
+    @RequestMapping(method = RequestMethod.POST,value = "/books")
     @ResponseStatus(HttpStatus.CREATED)
     public void addBook(@RequestBody Book book )
     {
         bookService.addBook(book);
     }
 
-    @RequestMapping("/{id}")
+    @RequestMapping("/books/{id}")
     @ResponseStatus(HttpStatus.FOUND)
     public Optional<Book> findById(@PathVariable(value = "id") int id)
     {
         return bookService.findById(id);
     }
 
-    @RequestMapping(method = RequestMethod.DELETE,value = "/{id}")
+    @RequestMapping(method = RequestMethod.DELETE,value = "/books/{id}")
     @ResponseStatus(HttpStatus.GONE)
     public void deleteById(@PathVariable(value = "id") int id)
     {
         bookService.deleteById(id);
     }
 
-    @RequestMapping("/searchbypublisher")
+    @RequestMapping("/books/searchbypublisher")
     @ResponseStatus(HttpStatus.FOUND)
     public List<Book> findByPublisher(@RequestParam(value = "publisher") String publisher)
     {
