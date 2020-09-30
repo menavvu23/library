@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/issuedbooks")
 public class IssueBookController {
 
     IssueBookService issueBookService;
@@ -20,14 +19,14 @@ public class IssueBookController {
         this.issueBookService = issueBookService;
     }
 
-    @RequestMapping("")
+    @RequestMapping("/issuedbooks")
     @ResponseStatus(HttpStatus.OK)
     public List<IssuedBooks> getAllIssuedBooks()
     {
         return issueBookService.getAll();
     }
 
-    @RequestMapping(method = RequestMethod.POST,value = "")
+    @RequestMapping(method = RequestMethod.POST,value = "/issuedbooks")
     @ResponseStatus(HttpStatus.CREATED)
 
     public void issueBook(@RequestBody IssuedBooks issuedBooks)
@@ -35,12 +34,12 @@ public class IssueBookController {
         issueBookService.issuedBook(issuedBooks);
     }
 
-    @RequestMapping("/student/{id}")
+    @RequestMapping("/issuedbooks/student/{id}")
     public List<Book>  getBooksForStudent(@PathVariable(value ="id") int id)
     {
         return issueBookService.getBooksForStudent(id);
     }
-    @RequestMapping("/book/{bookid}")
+    @RequestMapping("/issuedbooks/book/{bookid}")
     public Student getStudentForBook(@PathVariable(value = "bookid") int id)
     {
         return issueBookService.getStudentForBook(id);
